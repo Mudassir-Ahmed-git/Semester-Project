@@ -4,6 +4,7 @@ using namespace std;
 
 #define SIZE 20
 int snakeSize = 1;
+int score;
 enum Directions {UP, DOWN, LEFT, RIGHT};
 Directions dir;
 bool gameOver = false;
@@ -27,20 +28,20 @@ void move(){
     switch(dir){
         case UP:
             snake[0].y --;
-            cout<<"moving UP\n";
             break;
+            
         case DOWN:
             snake[0].y ++;
-            cout<<"moving DOWN\n";
             break;
+            
         case LEFT:
             snake[0].x --;
-            cout<<"moving LEFT\n";
             break;
+            
         case RIGHT:
             snake[0].x ++;
-            cout<<"moving RIGHT\n";
             break;
+            
     }
     if(snake[0].x == apple.x && snake[0].y == apple.y){
         snakeSize ++;
@@ -105,24 +106,29 @@ void snakeGame(){
                 switch(key->scancode){
                     case sf::Keyboard::Scan::Up:
                         dir = UP;
-                        cout<<"Pressed UP\n";
                         break;
+
                     case sf::Keyboard::Scan::Down:
                         dir = DOWN;
-                        cout<<"Pressed DOWN\n";
                         break;
+
                     case sf::Keyboard::Scan::Left:
                         dir = LEFT;
-                        cout<<"Pressed LEFT\n";
                         break;
+
                     case sf::Keyboard::Scan::Right:
                         dir = RIGHT;
-                        cout<<"Pressed RIGHT\n";
                         break;
                 }
             }
         }
-
+        score = snakeSize -1;
+        string scoreStr = to_string(score);
+        sf::Text textScore(font, "score: " + scoreStr, 20);
+        textScore.setFillColor(sf::Color::Black);
+        int scorex = textScore.getGlobalBounds().size.x;
+        int scoreposx = scorex/2;
+        textScore.setPosition(sf::Vector2f(240 - scoreposx, 0));
 
         window.clear();
         if(ticker.getElapsedTime().asMilliseconds() > 100){
@@ -139,6 +145,8 @@ void snakeGame(){
             window.draw(snakeShape);
         }
         cout<<"gameOver "<<gameOver<<endl;
+        window.draw(textScore);
+
         window.display();
     }
 }
