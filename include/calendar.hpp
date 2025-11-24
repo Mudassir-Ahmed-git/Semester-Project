@@ -44,7 +44,7 @@ void calendar(){
     }
     day = first_day(year, month);
     cur_day = localTime->tm_mday;
-    cout<<"Day of Month: "<<cur_day;
+ 
     string strCurDay = to_string(cur_day);
     string yearStr = to_string(year);
 

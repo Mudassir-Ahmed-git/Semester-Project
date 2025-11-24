@@ -17,7 +17,6 @@ void notepad(){
     string oldNotes;
     
     while(getline(inFile, oldNotes)){
-        cout<<oldNotes;
         note.append(oldNotes + "\n");
     }
     inFile.close();
@@ -71,7 +70,6 @@ void notepad(){
         window.display();
     }
     if(notepadFile.is_open()){
-            cout<<"file is open\n"; 
             notepadFile<<note;
     }
     notepadFile.close();

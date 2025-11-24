@@ -144,7 +144,7 @@ void snakeGame(){
             snakeShape.setPosition(sf::Vector2f(snake[i].x * SIZE, snake[i].y * SIZE));
             window.draw(snakeShape);
         }
-        cout<<"gameOver "<<gameOver<<endl;
+        
         window.draw(textScore);
 
         window.display();
