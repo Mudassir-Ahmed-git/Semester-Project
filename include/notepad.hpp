@@ -21,7 +21,7 @@ void notepad(){
     }
     inFile.close();
 
-    ofstream notepadFile("notepadFile.txt");
+    ofstream outFile("notepadFile.txt");
 
     
     int lineLength = 0;
@@ -69,8 +69,8 @@ void notepad(){
         window.draw(text);
         window.display();
     }
-    if(notepadFile.is_open()){
-            notepadFile<<note;
+    if(outFile.is_open()){
+            outFile<<note;
     }
-    notepadFile.close();
+    outFile.close();
 }

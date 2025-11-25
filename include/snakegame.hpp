@@ -131,10 +131,12 @@ void snakeGame(){
         textScore.setPosition(sf::Vector2f(240 - scoreposx, 0));
 
         window.clear();
+
         if(ticker.getElapsedTime().asMilliseconds() > 100){
             move();
             ticker.restart();
         }
+        
         window.draw(bgSprite);
 
         appleShape.setPosition(sf::Vector2f(apple.x * SIZE, apple.y * SIZE));

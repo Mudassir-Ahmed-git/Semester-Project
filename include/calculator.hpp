@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-
+                                                                                                                                                                                                                                                
 void calculator(){
         sf::RenderWindow window(sf::VideoMode({480, 700}), "Calculator");
         sf::Image icon;
@@ -97,7 +97,7 @@ void calculator(){
 
                             if(buttons[i].getGlobalBounds().contains(mouse_position)){
                                 
-                                try{
+                                  try{
                                     stoi(btnNames[i]);
                                     input += btnNames[i];
                                 }
